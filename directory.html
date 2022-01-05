@@ -4,13 +4,49 @@
     <title>Brazillian Business Communities</title>
     <link rel="stylesheet" href="home.css" media="screen">
   </head>
-  <body>
+  <body onload="fillTable()">
     <div id='content'>
       <ul>
         <li><a class="active" href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/directory">Directory</a></li>
       </ul>
-    Directory!
+      <div>
+        <table id="CompanyTable">
+          <thead>
+            <tr>
+              <th scope="col">Business Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">City</th>
+              <th scope="col">Website</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
   </body>
+  <script>
+  /*
+    trying to read file and use that in for each loop below to fill the CompanyTable table.
+  */
+  const fs = require('fs');
+    function fillTable() {
+      fs.readFile('companydata.json', (err, data) => {
+        if (err) {
+          throw err;
+        }
+        let jsonFile = JSON.parse(data);
+        console.log(jsonFile);
+        var tbody = document.getElementById('CompanyTable').getElementsByTagName('tbody')[0];
+        /*jsonFile.forEach(function(object) {
+            var tr = document.createElement('tr');
+            tr.innerHTML = '<td>' + object.BusinessName + '</td>' +
+                '<td>' + object.Address1 + '</td>' +
+                '<td>' + object.City + '</td>' +
+                '<td>' + object.Website + '</td>';
+            tbody.appendChild(tr);
+        });*/
+      });
+    }
+  </script>
 </html>
