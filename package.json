@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/duncanrout/bbcdrell#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "fetch": "^1.1.0"
   }
 }

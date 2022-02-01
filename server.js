@@ -10,6 +10,15 @@ const router = express.Router();
 //Each router sends files to the client browser
 //As of now we are sending all of the files to the browser
 
+/*const fs = require('fs')
+fs.readFile('./businessdata.json', 'utf8', (err, jsonString) => {
+    if (err) {
+        console.log("File read failed:", err)
+        return
+    }
+    console.log('File data:', jsonString)
+})*/
+
 router.get('/',function(req,res){
   res.sendFile(__dirname+'/home.html');
 });
@@ -24,6 +33,14 @@ router.get('/about',function(req,res){
 
 router.get('/directory',function(req,res){
   res.sendFile(__dirname+'/directory.html');
+});
+
+router.get('/businessdata.json',function(req,res){
+  res.sendFile(__dirname+'/businessdata.json');
+});
+
+router.get('/people',function(req,res){
+  res.sendFile(__dirname+'/people.json');
 });
 
 //add the router

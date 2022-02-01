@@ -2,6 +2,30 @@
 <html style="font-size: 16px;">
   <head>
     <title>Brazillian Business Communities</title>
+    <script>
+    //trying to read file and use that in for each loop below to fill the CompanyTable table.
+      function fillTable() {
+          console.log("Hello");
+          const fs = require('fs')
+          fs.readFile('./businessdata.json', 'utf8', (err, jsonString) => {
+              if (err) {
+                  console.log("File read failed:", err)
+                  return
+              }
+          console.log('File data:', jsonString)
+          })
+
+          //var tbody = document.getElementById('CompanyTable').getElementsByTagName('tbody')[0];
+          /*jsonFile.forEach(function(object) {
+              var tr = document.createElement('tr');
+              tr.innerHTML = '<td>' + object.BusinessName + '</td>' +
+                  '<td>' + object.Address1 + '</td>' +
+                  '<td>' + object.City + '</td>' +
+                  '<td>' + object.Website + '</td>';
+              tbody.appendChild(tr);
+          */
+      }
+    </script>
     <link rel="stylesheet" href="home.css" media="screen">
   </head>
   <body onload="fillTable()">
@@ -25,28 +49,5 @@
         </table>
       </div>
   </body>
-  <script>
-  /*
-    trying to read file and use that in for each loop below to fill the CompanyTable table.
-  */
-  const fs = require('fs');
-    function fillTable() {
-      fs.readFile('companydata.json', (err, data) => {
-        if (err) {
-          throw err;
-        }
-        let jsonFile = JSON.parse(data);
-        console.log(jsonFile);
-        var tbody = document.getElementById('CompanyTable').getElementsByTagName('tbody')[0];
-        /*jsonFile.forEach(function(object) {
-            var tr = document.createElement('tr');
-            tr.innerHTML = '<td>' + object.BusinessName + '</td>' +
-                '<td>' + object.Address1 + '</td>' +
-                '<td>' + object.City + '</td>' +
-                '<td>' + object.Website + '</td>';
-            tbody.appendChild(tr);
-        });*/
-      });
-    }
-  </script>
+
 </html>
