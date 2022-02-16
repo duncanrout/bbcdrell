@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <form action="/form" method="POST">
-    <label>Search
-      <input type="text" name="searchValue" value="<%= locals.searchValue %>" />
-    </label>
-    <button type="submit">Submit</button>
-  </form>
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+   </head>
+   <body>
+      <form action="/form" method="POST">
+         <label>
+            Search
+            <input type="text" name="searchValue" value="<%= locals.searchValue %>" />
+            <div id="myDropdown" class="dropdown-content">
+               <ul class="category_filters">
+                  <li>
+                     <label class="category-label-prov" >Provinces: </label>
+                     <input type="checkbox" name="checkboxes" id="Minas" value="Minas Gerais" >
+                     <label class="category-label" for="Province" >Minas Gerais</label>
+                     <input type="checkbox" name="checkboxes" id="Parana" value="Paraná" >
+                     <label class="category-label" for="Province" >Paraná</label>
+                     <input type="checkbox" name="checkboxes" id="Sao" value="São Paulo" >
+                     <label class="category-label" for="Province" >São Paulo</label>
+                     <!-- TODO: Make good -->
+                     <div id="provinceList" class="dropdown-content"></div>
+                  </li>
+                  <li>
+                     <label class="category-label-prov" for="Number of Employees" >Number of Employees: </label>
+                     <input type="text" class="input min_max" id="minInput" placeholder="Min">
+                     <input type="text" class="input min_max" id="maxInput" placeholder="Max">
+                  </li>
+               </ul>
+            </div>
+         </label>
+         <button type="submit">Submit</button>
+      </form>
+    </div>
+   </body>
 </html>
