@@ -4,27 +4,29 @@ const data = require('./data');
 //reads in the json file as a string
 
 router.use(logger)
-router.get("/", (req, res) => {
+/*router.get("/", (req, res) => {
   //how we are to pull data from query
-  console.log(req.query.name)
+  //console.log(req.query.name)
   res.send("temp")
-})
+})*/
 
 router.get("/companyQuery", (req, res) => {
   res.render("companyQuery")
 })
 
 router.post('/', (req, res, next) => {
-const filters = req.query;
-const filteredUsers = data.filter(user => {
-	let isValid = true;
-	for (key in filters) {
-	console.log(key, user[key], filters[key]);
-	isValid = isValid && user[key] == filters[key];
-	}
-	return isValid;
-});
-res.send(filteredUsers);
+  //const filters =   req.query
+  filters = { A: '01008118914' }
+  //example... localhost:3000/?A=uid&B=name
+  const filteredUsers = data.filter(user => {
+  	let isValid = true
+    for (key in filters) {
+    	console.log(key, user[key], filters[key])
+    	isValid = isValid && user[key] == filters[key]
+  	}
+  	return isValid
+  });
+  res.send(filteredUsers)
 });
 
 /*router.post("/", (req, res) => {
