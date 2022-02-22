@@ -7,15 +7,15 @@
       <title>Document</title>
    </head>
    <body>
-      <form action="/form" method="POST">
+      <form action="/form/companyQuery/results" method="GET">
          <label>
             Search
-            <input type="text" name="searchValue" value="<%= locals.searchValue %>" />
+            <input type="text" name="searchValue" value="<%= qs.searchValue %>" />
             <div id="myDropdown" class="dropdown-content">
                <ul class="category_filters">
                   <li>
                      <label class="category-label-prov" >Provinces: </label>
-                     <input type="checkbox" name="checkboxes" id="Minas" value="Minas Gerais" >
+                     <input type="checkbox" name="checkboxes" id="Minas" value="Minas" >
                      <label class="category-label" for="Province" >Minas Gerais</label>
                      <input type="checkbox" name="checkboxes" id="Parana" value="Paraná" >
                      <label class="category-label" for="Province" >Paraná</label>
@@ -26,8 +26,8 @@
                   </li>
                   <li>
                      <label class="category-label-prov" for="Number of Employees" >Number of Employees: </label>
-                     <input type="text" class="input min_max" id="minInput" placeholder="Min">
-                     <input type="text" class="input min_max" id="maxInput" placeholder="Max">
+                     <input type="number" name="input min" id="input min" placeholder="Min" value = "min">
+                     <input type="number" name="input max" id="input max" placeholder="Max" value = "max">
                   </li>
                </ul>
             </div>
