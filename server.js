@@ -15,7 +15,7 @@ const userRouter = require("./routes/form")
 app.use("/form", userRouter)
 
 app.get("/about",function(req,res){
-  res.sendFile(__dirname+'/about.html')
+  res.sendFile(__dirname+'/public/about.html')
 })
 
 app.listen(3000)
